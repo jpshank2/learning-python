@@ -17,7 +17,7 @@ def getListOfFiles(dirName):
             allFiles = allFiles + getListOfFiles(fullPath)
         elif (fullPath[-3:] == "zip"):
             with zipfile.ZipFile(fullPath, "r") as zip_ref:
-                zip_ref.extractall(fullPath)
+                zip_ref.extractall(os.path.dirname(os.path.dirname( __file__ )))
             allFiles = allFiles + getListOfFiles(fullPath)
         else:
             allFiles.append(fullPath)
