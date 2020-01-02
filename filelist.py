@@ -1,6 +1,6 @@
 #! python3
 
-import os, csv
+import os, csv, zipfile
 
 def getListOfFiles(dirName):
     # create a list of file and sub directories
@@ -15,6 +15,9 @@ def getListOfFiles(dirName):
         # If entry is a directory then get the list of files in this directory
         if os.path.isdir(fullPath):
             allFiles = allFiles + getListOfFiles(fullPath)
+        elif: (fullPath[-3:] == "zip"):
+            with zipfile.ZipFile(fullPath, "r") as zip_ref:
+                zip_ref.extractall()
         else:
             allFiles.append(fullPath)
 
