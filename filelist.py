@@ -18,6 +18,7 @@ def getListOfFiles(dirName):
         elif (fullPath[-3:] == "zip"):
             with zipfile.ZipFile(fullPath, "r") as zip_ref:
                 zip_ref.extractall(fullPath)
+            allFiles = allFiles + getListOfFiles(fullPath)
         else:
             allFiles.append(fullPath)
 
