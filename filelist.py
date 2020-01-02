@@ -15,7 +15,7 @@ def getListOfFiles(dirName):
         # If entry is a directory then get the list of files in this directory
         if os.path.isdir(fullPath):
             allFiles = allFiles + getListOfFiles(fullPath)
-        elif: (fullPath[-3:] == "zip"):
+        elif (fullPath[-3:] == "zip"):
             with zipfile.ZipFile(fullPath, "r") as zip_ref:
                 zip_ref.extractall()
         else:
